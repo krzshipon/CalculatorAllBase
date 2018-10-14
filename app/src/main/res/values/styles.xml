@@ -1,13 +1,15 @@
 <resources>
 
     <!-- Base application theme. -->
-    <style name="AppTheme" parent="android:Theme.Holo.Light.DarkActionBar">
+    <style name="AppTheme" parent="android:Theme.Holo.Light.NoActionBar">
         <!-- Customize your theme here. -->
     </style>
 
-    <style name="SplashTheme" parent="android:Theme.Holo.Light.NoActionBar">
-
-
+    <style name="MyTheme" parent="android:Theme.Holo.NoActionBar">
+        <item name="android:colorPrimary">#FFFFFF</item>
+        <item name="android:colorAccent">#FFFFFF</item>
+        <item name="android:colorPrimaryDark">#FFFFFF</item>
     </style>
+
 
 </resources>

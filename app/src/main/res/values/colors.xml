@@ -6,9 +6,9 @@
 
     <!--Calculator Buttons Color-->
 
-    <color name="buttonsLayout">#e4e4e4</color>
+    <color name="buttonsLayout">#e0e0e0</color>
     <color name="buttonBG">#f5f5f5</color>
-    <color name="lastButtonBG">#672e68</color>
+    <color name="lastButtonBG">#762877</color>
     <color name="butoonText">#878686</color>
 
 

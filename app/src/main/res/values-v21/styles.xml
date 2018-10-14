@@ -7,5 +7,11 @@
         <item name="android:colorPrimaryDark">@color/lastButtonBG</item>
         <item name="android:navigationBarColor">@color/lastButtonBG</item>
         <item name="android:statusBarColor">@color/lastButtonBG</item>
+        <item name="android:colorForeground">@color/lastButtonBG</item>
+    </style>
+
+    <style name="AppTheme" parent="android:Theme.Holo.Light.DarkActionBar">
+        <!-- Customize your theme here. -->
+        <item name="android:colorPrimaryDark">@color/lastButtonBG</item>
     </style>
 </resources>
