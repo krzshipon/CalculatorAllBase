@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">Calculator All Base</string>
+    <string name="division">\u00F7"</string>
+    <string name="mul">\u00D7"</string>
+    <string name="sqrt">\u221A"</string>
+
+</resources>
