@@ -1,7 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <dimen name="buttonMargin">2dp</dimen>
-    <dimen name="buttonTextSize">40dp</dimen>
+    <dimen name="buttonTextSize">40sp</dimen>
+
+
+    <dimen name="resultTxtS">40sp</dimen>
 
 
 </resources>

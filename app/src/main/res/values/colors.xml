@@ -9,7 +9,11 @@
     <color name="buttonsLayout">#e0e0e0</color>
     <color name="buttonBG">#f5f5f5</color>
     <color name="lastButtonBG">#762877</color>
-    <color name="butoonText">#878686</color>
+    <color name="butoonText">#bab9b9</color>
+
+
+    <color name="eqnTextColor">#e1dcdc</color>
+    <color name="resultTextColor">#FFFFFF</color>
 
 
 </resources>
