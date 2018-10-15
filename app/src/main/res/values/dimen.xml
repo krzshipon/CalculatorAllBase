@@ -5,6 +5,8 @@
 
 
     <dimen name="resultTxtS">40sp</dimen>
+    <dimen name="marginBottomResultText">70dp</dimen>
+    <dimen name="marginBottomEqnText">5dp</dimen>
 
 
 </resources>
