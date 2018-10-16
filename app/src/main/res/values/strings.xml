@@ -22,7 +22,7 @@
     <string name="del">DEL</string>
     <string name="clear">C</string>
     <string name="equal">=</string>
-    <string name="pm">+/-</string>
+    <string name="sqr">x\u2073"</string>
     <string name="mod">%</string>
     <string name="bracket_opn">(</string>
     <string name="bracket_cls">)</string>

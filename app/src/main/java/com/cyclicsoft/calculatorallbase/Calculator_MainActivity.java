@@ -3,6 +3,7 @@ package com.cyclicsoft.calculatorallbase;
 import android.app.Activity;
 import android.graphics.Paint;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
 
@@ -18,16 +19,27 @@ public class Calculator_MainActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_calculator__main);
+        final Interpreter interpreter=new Interpreter();
 
         //eqn to be evaluated
         final String[] mathEqn = {""};
+
 
 
         //unicode symbol mul and div
 
         final char uMul='\u00D7';
         final char uDiv='\u00F7';
+        final char uSqrt='\u221A';
 
+///*test*/
+        try {
+          String s= interpreter.eval("1+1+Math.sqrt(4)").toString();
+
+          Log.d("krz",s);
+        } catch (EvalError evalError) {
+            evalError.printStackTrace();
+        }
 
 
         //getting all button ref
@@ -54,8 +66,9 @@ public class Calculator_MainActivity extends Activity {
         TextView btnClr=(TextView) findViewById(R.id.tVclr);
         TextView btnDel=(TextView) findViewById(R.id.tVdel);
         TextView btnEql=(TextView) findViewById(R.id.tVeql);
-        TextView btnPM=(TextView) findViewById(R.id.tVpm);
+        TextView btnsqr=(TextView) findViewById(R.id.tVsqr);
         TextView btnPow=(TextView) findViewById(R.id.tVpwr);
+        TextView btnSqrt=(TextView) findViewById(R.id.tVsqrt);
 
         //getting result showing TextView ref
         final TextView eqnTV=(TextView) findViewById(R.id.mainEqnTV);
@@ -181,6 +194,8 @@ public class Calculator_MainActivity extends Activity {
                             temp=Character.toString(mathEqn[0].toString().charAt(i-1))+temp;
                             mathEqn[0]=mathEqn[0].substring(0,mathEqn[0].toString().length()-1);
 
+                        }else {
+                            break;
                         }
                     }
 
@@ -231,15 +246,76 @@ public class Calculator_MainActivity extends Activity {
             }
         });
 
+        btnSqrt.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                eqnTV.setText(eqnTV.getText()+Character.toString(uSqrt)+"(");
+                mathEqn[0] += "Math.sqrt(";
+            }
+        });
+
+        btnPow.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                String temp="";
+                if (!mathEqn[0].toString().isEmpty()){
+                    for (int i=mathEqn[0].toString().length();i>0;i--){
+                        if(Character.isDigit(mathEqn[0].toString().charAt(i-1)) | mathEqn[0].toString().charAt(i-1)=='.'){
+                            temp=Character.toString(mathEqn[0].toString().charAt(i-1))+temp;
+                            mathEqn[0]=mathEqn[0].substring(0,mathEqn[0].toString().length()-1);
+                            Log.d("krz",mathEqn[0]+"tmp:"+temp);
+
+                        }else {
+                            break;
+                        }
+                    }
+
+                    eqnTV.setText(eqnTV.getText()+"^(");
+                    mathEqn[0] +="Math.pow("+temp+",";
+                }
+
+            }
+        });
+
+
+        btnsqr.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String temp="";
+                if (!mathEqn[0].toString().isEmpty()){
+                    for (int i=mathEqn[0].toString().length();i>0;i--){
+                        if(Character.isDigit(mathEqn[0].toString().charAt(i-1)) | mathEqn[0].toString().charAt(i-1)=='.'){
+                            temp=Character.toString(mathEqn[0].toString().charAt(i-1))+temp;
+                            mathEqn[0]=mathEqn[0].substring(0,mathEqn[0].toString().length()-1);
+                            Log.d("krz",mathEqn[0]+"tmp:"+temp);
+
+                        }else {
+                            break;
+                        }
+                    }
+
+                    eqnTV.setText(eqnTV.getText()+"^(2)");
+                    mathEqn[0] +="Math.pow("+temp+",2)";
+                }
+            }
+        });
+
+
+
+
+
 
 
 
         //result calculation
-        final Interpreter interpreter=new Interpreter();
         btnEql.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 try{
+                    //
+                    Log.d("krz",mathEqn[0]);
+                    //
                     String result = interpreter.eval(mathEqn[0]).toString();
                     if(result.contains(".")){
                         BigDecimal bd = new BigDecimal(result);
